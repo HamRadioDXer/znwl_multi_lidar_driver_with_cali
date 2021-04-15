@@ -1,0 +1,7 @@
+3
+/lidar_child/velodyne_points
+0.0 0.0 -0.5 0.0 0.0 0.0
+/lidar_parent/velodyne_points
+1.0 0.0 0.0 1.5 0.0 1.579
+/point_raw
+1.0 0.0 0.0 1.5 0.0 1.579

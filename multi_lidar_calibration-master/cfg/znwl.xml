@@ -1,0 +1,107 @@
+Normal Distributions Transform converged:1 score: 1.05646 prob:0.424939
+transformation from velodyne to velodyne
+This transformation can be replicated using:
+rosrun tf static_transform_publisher 0.156253  1.37395 -0.29847   2.9976 -3.11369  2.84218 /velodyne /velodyne 10
+Corresponding transformation matrix:
+
+ 0.989266  0.145252 0.0159392  0.156253
+-0.143435   0.94444  0.295734   1.37395
+0.0279023 -0.294846  0.955137  -0.29847
+        0         0         0         1
+
+###########################################################################################################33
+
+
+
+Normal Distributions Transform converged:1 score: 0.260423 prob:0.610845
+transformation from velodyne to velodyne
+This transformation can be replicated using:
+rosrun tf static_transform_publisher -0.0846259     0.6224  -0.196698  0.0496032 -0.0874639  -0.412065 /velodyne /velodyne 10
+Corresponding transformation matrix:
+
+  0.994952 -0.0104907 -0.0998003 -0.0846259
+ 0.0493933   0.916903   0.396041     0.6224
+ 0.0873524  -0.398972   0.912793  -0.196698
+         0          0          0          1
+
+
+
+Normal Distributions Transform converged:1 score: 0.708255 prob:0.598479
+transformation from velodyne to velodyne
+This transformation can be replicated using:
+rosrun tf static_transform_publisher -0.0835133   0.622234  -0.198632  0.0495882 -0.0860288  -0.414455 /velodyne /velodyne 10
+Corresponding transformation matrix:
+
+  0.995077 -0.0108135  -0.098512 -0.0835133
+ 0.0493846   0.915926   0.398298   0.622234
+ 0.0859227  -0.401202   0.911951  -0.198632
+         0          0          0          1
+
+##################################################################################
+Normal Distributions Transform converged:1 score: 0.672099 prob:0.644827
+transformation from velodyne to velodyne
+This transformation can be replicated using:
+rosrun tf static_transform_publisher -0.0811352   0.614155  -0.193963  0.0508511 -0.0855975  -0.427692 /velodyne /velodyne 10
+Corresponding transformation matrix:
+
+  0.995051 -0.0108365 -0.0987742 -0.0811352
+  0.050643   0.910551   0.410282   0.614155
+  0.085493  -0.413254   0.906594  -0.193963
+         0          0          0          1
+###################################################################################
+Normal Distributions Transform converged:1 score: 0.99431 prob:0.638606
+transformation from velodyne to velodyne
+This transformation can be replicated using:
+rosrun tf static_transform_publisher  0.142014 -0.626242   -0.1535 0.0463929  -3.06019   2.73874 /velodyne /velodyne 10
+Corresponding transformation matrix:
+
+ -0.995616  0.0108184  0.0929074   0.142014
+-0.0462227  -0.920434  -0.388155  -0.626242
+ 0.0813159  -0.390748   0.916899    -0.1535
+         0          0          0          1
+#######################################################################################################
+
+
+
+和左侧的对比
+主激光为parent
+
+
+Normal Distributions Transform converged:1 score: 2.42926 prob:0.0483703
+transformation from velodyne to velodyne
+This transformation can be replicated using:
+rosrun tf static_transform_publisher   0.119871  -0.664232 -0.0665228 0.0461138 0.0602273  0.385029 /velodyne /velodyne 10
+Corresponding transformation matrix:
+
+  0.997126 -0.0201397  0.0730384   0.119871
+ 0.0460139   0.926845  -0.372615  -0.664232
+-0.0601909   0.374905   0.925107 -0.0665228
+         0          0          0          1
+
+
+孩子 ----主雷达
+
+ Normal Distributions Transform converged:1 score: 11.6486 prob:0.0494226
+transformation from velodyne_right to velodyne_right
+This transformation can be replicated using:
+rosrun tf static_transform_publisher   0.114484  -0.647311 -0.0756347 0.0161168 0.0682844  0.391244 /velodyne_right /velodyne_right 10
+Corresponding transformation matrix:
+
+   0.99754  0.0111176  0.0692129   0.114484
+ 0.0160785   0.924735  -0.380273  -0.647311
+-0.0682313    0.38045   0.922281 -0.0756347
+         0          0          0          1
+
+
+
+
+         Normal Distributions Transform converged:1 score: 0.20526 prob:0.0575405
+transformation from velodyne_right to velodyne_left
+This transformation can be replicated using:
+rosrun tf static_transform_publisher 0.0689343  0.675424 -0.180678 2.87252  -3.075 2.81061 /velodyne_left /velodyne_right 10
+Corresponding transformation matrix:
+
+ 0.961881  0.272255  0.025721 0.0689343
+-0.265247  0.905945  0.330013  0.675424
+0.0665458 -0.324255  0.943626 -0.180678
+        0         0         0         1
