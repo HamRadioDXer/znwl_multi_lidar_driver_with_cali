@@ -1,0 +1,103 @@
+<!-- -*- mode: XML -*- -->
+<!-- run velodyne_pointcloud/CloudNodelet in a nodelet manager for a VLP-16 -->
+<!-- Run two Velodyne VLP-16 LiDARs -->
+
+<launch>
+
+	<!-- Name lidar devices -->
+	<arg name="lidar1_name" default="lidar_parent" />
+	<arg name="lidar2_name" default="lidar_child" />
+
+
+
+
+<!--For VELODYNE 02 -->
+
+	<group ns="$(arg lidar2_name)">
+  <!-- declare arguments with default values -->
+    <arg name="calibration" default="$(find velodyne_pointcloud)/params/VLP16db.yaml"/>
+    <arg name="device_ip" default="192.168.1.201" />
+    <arg name="port" default="2369" />
+    <arg name="frame_id" default="velodyne_right" />
+    <arg name="manager" default="$(arg frame_id)_nodelet_manager" />
+    <arg name="max_range" default="130.0" />
+    <arg name="min_range" default="0.4" />
+    <arg name="pcap" default="" />
+    <arg name="read_fast" default="false" />
+    <arg name="read_once" default="false" />
+    <arg name="repeat_delay" default="0.0" />
+    <arg name="rpm" default="600.0" />
+    <arg name="cut_angle" default="-0.01" />
+    <arg name="laserscan_ring" default="-1" />
+    <arg name="laserscan_resolution" default="0.007" />
+
+  <!-- start nodelet manager and driver nodelets -->
+    <include file="$(find velodyne_driver)/launch/nodelet_manager.launch">
+      <arg name="device_ip" value="192.168.1.201"/>
+      <arg name="frame_id" value="velodyne_right"/>
+      <arg name="manager" value="$(arg frame_id)_nodelet_manager" />
+      <arg name="model" value="VLP16"/>
+      <arg name="pcap" value="$(arg pcap)"/>
+      <arg name="port" value="$(arg port)"/>
+      <arg name="read_fast" value="$(arg read_fast)"/>
+      <arg name="read_once" value="$(arg read_once)"/>
+      <arg name="repeat_delay" value="$(arg repeat_delay)"/>
+      <arg name="rpm" value="$(arg rpm)"/>
+      <arg name="cut_angle" value="$(arg cut_angle)"/>
+    </include>
+
+  <!-- start cloud nodelet -->
+    <include file="$(find velodyne_pointcloud)/launch/cloud_nodelet.launch">
+      <arg name="calibration" value="$(arg calibration)"/>
+      <arg name="manager" value="$(arg frame_id)_nodelet_manager" />
+      <arg name="max_range" value="$(arg max_range)"/>
+      <arg name="min_range" value="$(arg min_range)"/>
+    </include>
+  </group>
+
+<!-- FOR first VLP16 -->
+ 	<group ns="$(arg lidar1_name)">
+  <!-- hardware parameters -->
+    <arg name="calibration" default="$(find velodyne_pointcloud)/params/VLP16db.yaml"/>
+
+    <arg name="device_ip" default="192.168.1.100" />
+    <arg name="port" default="2366" />
+    <arg name="frame_id" default="velodyne_left" />
+    <arg name="manager" default="$(arg frame_id)_nodelet_manager" />
+    <arg name="max_range" default="130.0" />
+    <arg name="min_range" default="0.4" />
+    <arg name="pcap" default="" />
+    <arg name="read_fast" default="false" />
+    <arg name="read_once" default="false" />
+    <arg name="repeat_delay" default="0.0" />
+    <arg name="rpm" default="600.0" />
+    <arg name="cut_angle" default="-0.01" />
+    <arg name="laserscan_ring" default="-1" />
+    <arg name="laserscan_resolution" default="0.007" />
+
+  <!-- start nodelet manager and driver nodelets -->
+    <include file="$(find velodyne_driver)/launch/nodelet_manager.launch">
+      <arg name="device_ip" value="192.168.1.100"/>
+      <arg name="frame_id" value="velodyne_left"/>
+      <arg name="manager" value="$(arg frame_id)_nodelet_manager" />
+      <arg name="model" value="VLP16"/>
+      <arg name="pcap" value="$(arg pcap)"/>
+      <arg name="port" value="$(arg port)"/>
+      <arg name="read_fast" value="$(arg read_fast)"/>
+      <arg name="read_once" value="$(arg read_once)"/>
+      <arg name="repeat_delay" value="$(arg repeat_delay)"/>
+      <arg name="rpm" value="$(arg rpm)"/>
+      <arg name="cut_angle" value="$(arg cut_angle)"/>
+    </include>
+
+  <!-- start cloud nodelet -->
+    <include file="$(find velodyne_pointcloud)/launch/cloud_nodelet.launch">
+      <arg name="calibration" value="$(arg calibration)"/>
+      <arg name="manager" value="$(arg frame_id)_nodelet_manager" />
+      <arg name="max_range" value="$(arg max_range)"/>
+      <arg name="min_range" value="$(arg min_range)"/>
+    </include>
+  </group>
+
+
+</launch>
